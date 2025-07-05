@@ -75,6 +75,30 @@ public class ALLMostAllStreamQuestionWithBestPractice {
 		
 		System.out.println("Third Max Value is : " + thirdLargestValue);*/
 		
-	}
+		
+//		Group strings by length
+		
+		List<String> val = Arrays.asList("oil","papaya","kuli","banana");
+		
+		Map<Integer,List<String>> groupByLength = val.stream().collect(
+				Collectors.groupingBy(String::length));
+		
+		System.out.println("Values are : " + groupByLength);
+		
+//		How do you sort characters of a String alphabetically using Stream API?
+		
+		String str = "stream";
+							// str.chars : () this line convert String of Stream in IntStream 
+							// mapToObj : (c -> char(c)) this line Convert to Char like Stream<Character>
+							// sorted() : sorting in Natural Order
+							// map(String::valueOf) now it converting Char to String
+							// collect(Collectors.joining()) : this converting all string in single String
+		String resultAlpha = str.chars().mapToObj(c -> (char) c).sorted().map(String::valueOf).
+				collect(Collectors.joining());
+		
+		System.out.println("Value are : " + resultAlpha);
+
+		
+	} 
 
 }
